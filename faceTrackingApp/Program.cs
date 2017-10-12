@@ -19,7 +19,6 @@ namespace faceTrackingApp
         public static FaceModel _faceModel = null;
         public static CoordinateMapper _coordinateMapper = null;
         public static Worker _worker = new Worker();
-        public static FileStream _animationUnitStream, _verticesFileStream;
         public static bool trackingSuccess = false;
 
         static void Main(string[] args)
@@ -76,6 +75,15 @@ namespace faceTrackingApp
                 {
                     _faceSource.TrackingId = body.TrackingId;
                 }
+            }
+
+            if (_worker.counterFrame++ >= 1000)
+            {
+                //Console.WriteLine("here");
+                Console.WriteLine("999 frames have been saved..");
+                _worker.counterFrame = 0;
+                _worker.counterFile++;
+                _worker.InilizeAnimationUnitStream();
             }
 
         }

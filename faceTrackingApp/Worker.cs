@@ -25,8 +25,8 @@ namespace faceTrackingApp
         public string _fileName { get; set; }
         private string _folderNameRec = null;
         private string _animationUnitFolder;
-        public int counterFile;
-        public int counterFrame;
+        public int counterFile = 0;
+        public int counterFrame = 0;
         public Body[] _bodies = new Body[6];
         private StreamWriter _animationUnitWriter = null;
 
